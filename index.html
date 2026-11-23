@@ -1,1 +1,224 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>عبدالله ظاهری  </title>
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Vazirmatn, sans-serif;
+    background: #080817;
+    color: white;
+}
+
+header {
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #292943;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    color: #9b7aff;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+.hero {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    background: radial-gradient(circle, #24204d 0%, #080817 65%);
+}
+
+.badge {
+    color: #25e0ff;
+    border: 1px solid #25e0ff;
+    padding: 8px 18px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 7vw, 65px);
+    font-weight: 800;
+    background: linear-gradient(90deg,#a78bfa,#22d3ee);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #b9b9ce;
+    margin: 20px 0 30px;
+    line-height: 2;
+}
+
+.btn {
+    background: linear-gradient(90deg,#7955ff,#16c9e8);
+    color: white;
+    padding: 13px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+}
+
+section {
+    padding: 65px 8%;
+}
+
+.title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 35px;
+    color: #a78bfa;
+}
+
+.about {
+    background: #111126;
+    border: 1px solid #292943;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    line-height: 2.5;
+    color: #ccc;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #15152c;
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid #292943;
+    text-align: center;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #8b6cff;
+}
+
+.card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #aaa;
+    margin-top: 12px;
+    line-height: 2;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #101020;
+    color: #888;
+    border-top: 1px solid #292943;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ABDOLLAH</div>
+    <nav>
+        <a href="#home">خانه</a>
+        <a href="#about">درباره من</a>
+        <a href="#projects">پروژه‌ها</a>
+    </nav>
+</header>
+
+<div class="hero" id="home">
+
+    <div class="badge">خوش آمدید به سایت رسمی من</div>
+
+    <h1>عبدالله ظاهری</h1>
+
+    <p>
+        به دنیای خلاقیت، تکنولوژی و برنامه‌نویسی خوش آمدید.
+        <br>
+        اینجا مرکز معرفی پروژه‌ها و فعالیت‌های من است.
+    </p>
+
+    <a href="#projects" class="btn">مشاهده پروژه‌ها</a>
+
+</div>
+
+<section id="about">
+
+    <h2 class="title">درباره من</h2>
+
+    <div class="about">
+        سلام! من عبدالله ظاهری هستم.
+        <br>
+        به تکنولوژی، طراحی سایت، برنامه‌نویسی
+        و ساخت پروژه‌های خلاقانه علاقه دارم.
+        <br>
+        هدف من ساخت ایده‌های جدید و جذاب است.
+    </div>
+
+</section>
+
+<section id="projects">
+
+    <h2 class="title">پروژه‌های من</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>طراحی سایت</h3>
+            <p>ساخت وب‌سایت‌های مدرن و حرفه‌ای</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤖</div>
+            <h3>ربات‌ها</h3>
+            <p>معرفی پروژه‌های رباتیک و هوشمند</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📱</div>
+            <h3>اپلیکیشن‌ها</h3>
+            <p>معرفی برنامه‌ها و نرم‌افزارها</p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 عبدالله ظاهری | تمام حقوق محفوظ است.
+</footer>
+
+</body>
+</html>
