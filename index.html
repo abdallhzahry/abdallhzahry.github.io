@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>عبدالله ظاهری  </title>
+<title>عبدالله ظاهری</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -18,207 +18,91 @@ body {
     font-family: Vazirmatn, sans-serif;
     background: #080817;
     color: white;
-}
-
-header {
-    padding: 22px 8%;
+    min-height: 100vh;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #292943;
-}
-
-.logo {
-    font-size: 23px;
-    font-weight: 800;
-    color: #9b7aff;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-right: 20px;
-    font-size: 14px;
-}
-
-.hero {
-    min-height: 75vh;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 30px;
-    background: radial-gradient(circle, #24204d 0%, #080817 65%);
-}
-
-.badge {
-    color: #25e0ff;
-    border: 1px solid #25e0ff;
-    padding: 8px 18px;
-    border-radius: 30px;
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-size: clamp(35px, 7vw, 65px);
-    font-weight: 800;
-    background: linear-gradient(90deg,#a78bfa,#22d3ee);
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.hero p {
-    color: #b9b9ce;
-    margin: 20px 0 30px;
-    line-height: 2;
-}
-
-.btn {
-    background: linear-gradient(90deg,#7955ff,#16c9e8);
-    color: white;
-    padding: 13px 30px;
-    border-radius: 12px;
-    text-decoration: none;
-    display: inline-block;
-    font-weight: bold;
-}
-
-section {
-    padding: 65px 8%;
-}
-
-.title {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 35px;
-    color: #a78bfa;
-}
-
-.about {
-    background: #111126;
-    border: 1px solid #292943;
-    border-radius: 20px;
-    padding: 30px;
-    text-align: center;
-    line-height: 2.5;
-    color: #ccc;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    gap: 20px;
+    padding: 20px;
 }
 
 .card {
+    width: 100%;
+    max-width: 420px;
     background: #15152c;
-    padding: 30px;
-    border-radius: 18px;
-    border: 1px solid #292943;
+    border: 1px solid #39335f;
+    border-radius: 25px;
+    padding: 40px 25px;
     text-align: center;
-    transition: .3s;
+    box-shadow: 0 15px 50px #0008;
 }
 
-.card:hover {
-    transform: translateY(-8px);
-    border-color: #8b6cff;
+.profile {
+    width: 165px;
+    height: 165px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #9470ff;
+    box-shadow: 0 0 30px #7955ff80;
+    margin-bottom: 25px;
 }
 
-.card .icon {
-    font-size: 40px;
+h1 {
+    font-size: 32px;
+    background: linear-gradient(90deg,#a78bfa,#22d3ee);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     margin-bottom: 15px;
 }
 
-.card p {
-    color: #aaa;
-    margin-top: 12px;
-    line-height: 2;
+p {
+    color: #b9b9ce;
+    line-height: 2.3;
+    font-size: 14px;
 }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #101020;
-    color: #888;
-    border-top: 1px solid #292943;
+.line {
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg,#7955ff,#22d3ee);
+    border-radius: 10px;
+    margin: 25px auto;
+}
+
+.footer {
+    color: #777;
+    font-size: 12px;
+    margin-top: 30px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">ABDOLLAH</div>
-    <nav>
-        <a href="#home">خانه</a>
-        <a href="#about">درباره من</a>
-        <a href="#projects">پروژه‌ها</a>
-    </nav>
-</header>
+<div class="card">
 
-<div class="hero" id="home">
-
-    <div class="badge">خوش آمدید به سایت رسمی من</div>
+    <img
+    class="profile"
+    src="https://s101.picofile.com/d/kiC7l-H8giBt2fUN4VzUM6rUwruNRRhrLwKjM-AD1Q-nspcA2mbDfVvzRhSCKF-lnVJm-VfdSxSxEXcOyZRXXDOsurU9LsTXgny-/IMG_20250818_114602.jpg"
+    alt="عبدالله ظاهری">
 
     <h1>عبدالله ظاهری</h1>
 
+    <div class="line"></div>
+
     <p>
-        به دنیای خلاقیت، تکنولوژی و برنامه‌نویسی خوش آمدید.
+        سلام! خوش آمدید ❤️
         <br>
-        اینجا مرکز معرفی پروژه‌ها و فعالیت‌های من است.
+        این صفحه شخصی من است.
+        <br>
+        به دنیای من خوش آمدید.
     </p>
 
-    <a href="#projects" class="btn">مشاهده پروژه‌ها</a>
+    <div class="footer">
+        © 2026 عبدالله ظاهری
+    </div>
 
 </div>
-
-<section id="about">
-
-    <h2 class="title">درباره من</h2>
-
-    <div class="about">
-        سلام! من عبدالله ظاهری هستم.
-        <br>
-        به تکنولوژی، طراحی سایت، برنامه‌نویسی
-        و ساخت پروژه‌های خلاقانه علاقه دارم.
-        <br>
-        هدف من ساخت ایده‌های جدید و جذاب است.
-    </div>
-
-</section>
-
-<section id="projects">
-
-    <h2 class="title">پروژه‌های من</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <div class="icon">🌐</div>
-            <h3>طراحی سایت</h3>
-            <p>ساخت وب‌سایت‌های مدرن و حرفه‌ای</p>
-        </div>
-
-        <div class="card">
-            <div class="icon">🤖</div>
-            <h3>ربات‌ها</h3>
-            <p>معرفی پروژه‌های رباتیک و هوشمند</p>
-        </div>
-
-        <div class="card">
-            <div class="icon">📱</div>
-            <h3>اپلیکیشن‌ها</h3>
-            <p>معرفی برنامه‌ها و نرم‌افزارها</p>
-        </div>
-
-    </div>
-
-</section>
-
-<footer>
-    © 2026 عبدالله ظاهری | تمام حقوق محفوظ است.
-</footer>
 
 </body>
 </html>
