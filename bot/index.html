@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل ربات‌ساز روبیکا</title>
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --primary-hover: #5b4bc4;
+            --bg: #f4f6f9;
+            --card: #ffffff;
+            --text: #2d3436;
+            --border: #dfe6e9;
+        }
+
+        body {
+            font-family: Tahoma, 'Vazirmatn', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 750px;
+            background: var(--card);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .command-box {
+            background: #f8f9fa;
+            border: 1px dashed #b2bec3;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .command-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .command-row input {
+            flex: 1;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background-color: #00b894;
+        }
+
+        .btn-secondary:hover {
+            background-color: #00a383;
+        }
+
+        .btn-danger {
+            background-color: #d63031;
+            padding: 8px 12px;
+        }
+
+        .btn-danger:hover {
+            background-color: #b71c1c;
+        }
+
+        .output-section {
+            margin-top: 25px;
+            display: none;
+        }
+
+        pre {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 8px;
+            direction: ltr;
+            text-align: left;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🤖 ربات‌ساز هوشمند روبیکا</h1>
+
+    <div class="form-group">
+        <label for="botToken">توکن یا Auth ربات روبیکا:</label>
+        <input type="text" id="botToken" placeholder="مثال: 123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11">
+    </div>
+
+    <div class="form-group">
+        <label for="welcomeMsg">پیام خوش‌آمدگویی (دستور /start):</label>
+        <textarea id="welcomeMsg" rows="2" placeholder="سلام! به ربات من خوش آمدید."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>پاسخ‌های خودکار (دستور و پاسخ):</label>
+        <div id="commandsContainer">
+            <div class="command-row">
+                <input type="text" class="cmd-trigger" placeholder="متن ارسالی کاربر (مثلاً: سلام)">
+                <input type="text" class="cmd-reply" placeholder="پاسخ ربات (مثلاً: علیک سلام!)">
+                <button type="button" class="btn-danger" onclick="removeRow(this)">حذف</button>
+            </div>
+        </div>
+        <button type="button" class="btn-secondary" onclick="addCommandRow()">+ افزودن دستور جدید</button>
+    </div>
+
+    <button type="button" style="width: 100%; font-weight: bold; padding: 12px;" onclick="generateCode()">ساخت کد نهایی ربات</button>
+
+    <div class="output-section" id="outputSection">
+        <label>کد پایتون آماده اجرا (نیازمند کتابخانه rubpy):</label>
+        <pre id="codeOutput"></pre>
+        <div class="actions">
+            <button type="button" onclick="copyCode()">کپی کردن کد</button>
+            <button type="button" class="btn-secondary" onclick="downloadCode()">دانلود فایل bot.py</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addCommandRow() {
+        const container = document.getElementById('commandsContainer');
+        const row = document.createElement('div');
+        row.className = 'command-row';
+        row.innerHTML = `
+            <input type="text" class="cmd-trigger" placeholder="متن ارسالی کاربر">
+            <input type="text" class="cmd-reply" placeholder="پاسخ ربات">
+            <button type="button" class="btn-danger" onclick="removeRow(this)">حذف</button>
+        `;
+        container.appendChild(row);
+    }
+
+    function removeRow(btn) {
+        const rows = document.querySelectorAll('.command-row');
+        if (rows.length > 1) {
+            btn.parentElement.remove();
+        } else {
+            alert('حداقل یک ردیف دستور باید وجود داشته باشد.');
+        }
+    }
+
+    function generateCode() {
+        const token = document.getElementById('botToken').value.trim() || 'YOUR_BOT_TOKEN';
+        const welcome = document.getElementById('welcomeMsg').value.trim() || 'سلام! خوش آمدید.';
+        
+        const triggers = document.querySelectorAll('.cmd-trigger');
+        const replies = document.querySelectorAll('.cmd-reply');
+        
+        let conditions = '';
+        for (let i = 0; i < triggers.length; i++) {
+            const t = triggers[i].value.trim().replace(/"/g, '\\"');
+            const r = replies[i].value.trim().replace(/"/g, '\\"');
+            if (t && r) {
+                conditions += `    elif text == "${t}":\n        await update.reply("${r}")\n`;
+            }
+        }
+
+        const pythonTemplate = `from rubpy import Client, filters
+from rubpy.types import Updates
+
+# راه‌اندازی کلاینت روبیکا
+bot = Client(name='my_rubika_bot', bot_token="${token}")
+
+@bot.on_message_updates(filters.is_private)
+async def handle_messages(update: Updates):
+    text = update.text
+    if not text:
+        return
+
+    if text == "/start":
+        await update.reply("""${welcome}""")
+${conditions}
+print("ربات روبیکا با موفقیت روشن شد...")
+bot.run()`;
+
+        document.getElementById('codeOutput').textContent = pythonTemplate;
+        document.getElementById('outputSection').style.display = 'block';
+    }
+
+    function copyCode() {
+        const code = document.getElementById('codeOutput').textContent;
+        navigator.clipboard.writeText(code).then(() => {
+            alert('کد با موفقیت در حافظه کپی شد!');
+        });
+    }
+
+    function downloadCode() {
+        const code = document.getElementById('codeOutput').textContent;
+        const blob = new Blob([code], { type: 'text/plain;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'rubika_bot.py';
+        link.click();
+    }
+</script>
+
+</body>
+  </html>
+  
